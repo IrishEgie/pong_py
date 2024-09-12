@@ -14,7 +14,6 @@ class Paddle(Turtle):
         self.move_speed = 30
         self.moving_up = False
         self.moving_down = False
-        
 
     def move_up(self):
         """Move the paddle up continuously while 'w' is pressed."""

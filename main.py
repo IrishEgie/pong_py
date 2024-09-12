@@ -36,12 +36,20 @@ dash()
 # Create paddle on the right side of the screen
 paddle1 = Paddle(x_pos=-380, y_pos=0, sc_width=screen_width ,sc_height=screen_height )
 paddle2 = Paddle(x_pos=375, y_pos=0, sc_width=screen_width ,sc_height=screen_height)
-ball = Ball()
+ball = Ball(sc_width=450, sc_height=300)
+
 
 game_is_on = True
 while game_is_on:
+    ball.move_ball()
     paddle1.listen_keys_1()
     paddle2.listen_keys_2()
+
+    # Detect collision with paddles
+    ball.paddle_collision(paddle1)
+    ball.paddle_collision(paddle2)
+
+    time.sleep(0.05)
     screen.update()
 
 screen.exitonclick()
